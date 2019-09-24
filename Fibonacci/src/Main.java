@@ -34,7 +34,7 @@ public class Main {
                 printLine(i, result, endTime - startTime);
             }
         }
-        
+
     }
 
     // print format
