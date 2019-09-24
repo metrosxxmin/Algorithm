@@ -23,6 +23,10 @@ public class Main {
             }
         }
 
+        if (input == 2) {
+
+        }
+
 
     }
 
