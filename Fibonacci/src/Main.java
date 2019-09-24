@@ -7,7 +7,7 @@ public class Main {
     final static int INDEXOFMAX = 90;
 
     public static void main(String[] argc) {
-        System.out.printf("Method \n1 : Recursion \n\ninput : ");
+        System.out.printf("Method \n1 : Recursion \n2 : Dynamic Programming \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -24,10 +24,17 @@ public class Main {
         }
 
         if (input == 2) {
+            DynamicProgramming dynamicProgramming = new DynamicProgramming();
+            for (int i = 0; i <= INDEXOFMAX; ++i) {
 
+                startTime = System.nanoTime();
+                result = dynamicProgramming.fibonacci(i);
+                endTime = System.nanoTime();
+
+                printLine(i, result, endTime - startTime);
+            }
         }
-
-
+        
     }
 
     // print format
