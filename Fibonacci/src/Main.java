@@ -35,6 +35,18 @@ public class Main {
             }
         }
 
+        if (input == 3) {
+            SpaceOptimize spaceOptimize = new SpaceOptimize();
+            for (int i = 0; i <= INDEXOFMAX; ++i) {
+
+                startTime = System.nanoTime();
+                result = spaceOptimize.fibonacci(i);
+                endTime = System.nanoTime();
+
+                printLine(i, result, endTime - startTime);
+            }
+        }
+
     }
 
     // print format
