@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class Main {
     static BigInteger result;
     static long startTime, endTime;
-    final static int INDEXOFMAX = 90;
+    final static int INDEXOFMAX = 1000;
 
     public static void main(String[] argc) {
         System.out.printf("Method \n1 : Recursion \n2 : Dynamic Programming " +
-                "\n3 : SpaceOptimize \n\ninput : ");
+                "\n3 : SpaceOptimize \n4 : PowerOfMatrix \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -42,6 +42,18 @@ public class Main {
 
                 startTime = System.nanoTime();
                 result = spaceOptimize.fibonacci(i);
+                endTime = System.nanoTime();
+
+                printLine(i, result, endTime - startTime);
+            }
+        }
+
+        if (input == 4) {
+            PowerOfMatrix powerOfMatrix = new PowerOfMatrix();
+            for (int i = 0; i <= INDEXOFMAX; ++i) {
+
+                startTime = System.nanoTime();
+                result = powerOfMatrix.fibonacci(i);
                 endTime = System.nanoTime();
 
                 printLine(i, result, endTime - startTime);
