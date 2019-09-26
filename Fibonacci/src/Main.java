@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] argc) {
         System.out.printf("Method \n1 : Recursion \n2 : Dynamic Programming " +
-                "\n3 : SpaceOptimize \n4 : PowerOfMatrix \n\ninput : ");
+                "\n3 : Space optimize \n4 : Power of Matrix \n5 : Optimaized Power of Matrix \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -54,6 +54,18 @@ public class Main {
 
                 startTime = System.nanoTime();
                 result = powerOfMatrix.fibonacci(i);
+                endTime = System.nanoTime();
+
+                printLine(i, result, endTime - startTime);
+            }
+        }
+
+        if (input == 5) {
+            PowerOfMatrixOptimize powerOfMatrixOptimize = new PowerOfMatrixOptimize();
+            for (int i = 0; i <= INDEXOFMAX; ++i) {
+
+                startTime = System.nanoTime();
+                result = powerOfMatrixOptimize.fibonacci(i);
                 endTime = System.nanoTime();
 
                 printLine(i, result, endTime - startTime);
