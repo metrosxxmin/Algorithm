@@ -7,7 +7,8 @@ public class Main {
     final static int INDEXOFMAX = 90;
 
     public static void main(String[] argc) {
-        System.out.printf("Method \n1 : Recursion \n2 : Dynamic Programming \n\ninput : ");
+        System.out.printf("Method \n1 : Recursion \n2 : Dynamic Programming " +
+                "\n3 : SpaceOptimize \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
