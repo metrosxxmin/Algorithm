@@ -11,7 +11,7 @@ public class FomulaForLogN {
     public final static BigInteger zero = BigInteger.ZERO;
     public final static BigInteger one = BigInteger.ONE;
     public final static BigInteger two = one.add(one);
-    public BigInteger f[];
+    public BigInteger f[] = new BigInteger[1000];
 
     public BigInteger fibonacci(BigInteger n) {
 
