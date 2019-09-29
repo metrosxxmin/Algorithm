@@ -20,17 +20,11 @@ public class FomulaForLogN {
         if (!f[n.intValue()].equals(zero))
             return f[n.intValue()];
 
-        BigInteger k;
-        if (n.mod(two) == zero) {
-            k = n.divide(two);
-            f[n.intValue()] = (two.multiply(fibonacci(k.subtract(one)))
-                    .add(fibonacci(k))).multiply(fibonacci(k));
-        }
-        else {
-            k = n.add(one).divide(two);
-            f[n.intValue()] = (fibonacci(k).multiply(fibonacci(k))
-                    .add(fibonacci(k.subtract(one)))).multiply(fibonacci(k).subtract(one));
-        }
+        BigInteger k = ( n.and(one).equals(one) ? (n.add(one)).divide(two) : n.divide(two) );
+
+        f[n.intValue()] = ( n.and(one).equals(one) ?
+                ( (fibonacci(k).multiply(fibonacci(k))).add((fibonacci(k.subtract(one))).multiply(fibonacci(k.subtract(one)))))
+                : ((two.multiply(fibonacci(k.subtract(one)))).add(fibonacci(k))).multiply(fibonacci(k)) );
 
         return f[n.intValue()];
     }
