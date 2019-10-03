@@ -18,7 +18,7 @@ public class Main {
             System.out.print(testArray[i] + " ");
         }
 
-        System.out.print("\n\n <Option> \n1 : Insertion \n\ninput : ");
+        System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble\n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -28,11 +28,23 @@ public class Main {
             result = sort.byInsertion(testArray);
             endTime = System.nanoTime();
 
-            System.out.print("After sorting \n>> ");
-            for (int i = 0; i < MAX_SIZE; ++i) {
-                System.out.print(testArray[i] + " ");
-            }
-            System.out.print("\nRUNTIME : " + String.format("%20.12f", (endTime - startTime) / 1_000_000_000.0) + " sec \n");
+            printLine(result, endTime - startTime);
         }
+
+        if (input == 2) {
+            startTime = System.nanoTime();
+            result = sort.byBubble(testArray);
+            endTime = System.nanoTime();
+
+            printLine(result, endTime - startTime);
+        }
+    }
+
+    public static void printLine(int[] result, long time) {
+        System.out.print("After sorting \n>> ");
+        for (int i = 0; i < MAX_SIZE; ++i) {
+            System.out.print(result[i] + " ");
+        }
+        System.out.print("\nRUNTIME : " + String.format("%20.12f", time / 1_000_000_000.0) + " sec \n");
     }
 }
