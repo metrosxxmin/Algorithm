@@ -3,6 +3,7 @@ public class Sort {
 
     public int[] array;
     public int n;
+    public int countForMerge;
 
     public Sort(int[] array) {
 
@@ -57,5 +58,40 @@ public class Sort {
         }
 
         return arr;
+    }
+
+    public int[] byMerge(int[] arr, int m, int n) {
+        int middle = (m + n) / 2;
+
+        if (m < n) {
+            byMerge(arr, m, middle);
+            byMerge(arr, middle + 1, n);
+            return merge(arr, m, middle, n);
+        }
+
+        else return null;
+    }
+
+    public int[] merge(int[] arr, int m, int middle, int n) {
+        int[] sortArr = arr;
+        countForMerge++;
+        int i, j, k;
+        i = k = m;
+        j = middle + 1;
+
+        while (i <= middle && j <= n) {
+            if (arr[i] <= arr[j]) sortArr[k] = arr[i++];
+            else sortArr[k] = arr[j++];
+            k++;
+        }
+
+        if (i > middle)
+            for(int t = j; t <= n; t++, k++)
+                sortArr[k] = arr[t];
+        else
+            for(int t = i; t <= middle; t++, k++)
+                sortArr[k] = arr[t];
+
+        return sortArr;
     }
 }
