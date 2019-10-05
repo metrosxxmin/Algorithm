@@ -18,7 +18,8 @@ public class Main {
             System.out.print(testArray[i] + " ");
         }
 
-        System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection \n\ninput : ");
+        System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection " +
+                "\n4 : Merge \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -42,6 +43,14 @@ public class Main {
         if (input == 3) {
             startTime = System.nanoTime();
             result = sort.bySelection(testArray);
+            endTime = System.nanoTime();
+
+            printLine(result, endTime - startTime);
+        }
+
+        if (input == 4) {
+            startTime = System.nanoTime();
+            result = sort.byMerge(testArray, 0, testArray.length - 1);
             endTime = System.nanoTime();
 
             printLine(result, endTime - startTime);
