@@ -18,7 +18,7 @@ public class Main {
             System.out.print(testArray[i] + " ");
         }
 
-        System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble\n\ninput : ");
+        System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -34,6 +34,14 @@ public class Main {
         if (input == 2) {
             startTime = System.nanoTime();
             result = sort.byBubble(testArray);
+            endTime = System.nanoTime();
+
+            printLine(result, endTime - startTime);
+        }
+
+        if (input == 3) {
+            startTime = System.nanoTime();
+            result = sort.bySelection(testArray);
             endTime = System.nanoTime();
 
             printLine(result, endTime - startTime);
