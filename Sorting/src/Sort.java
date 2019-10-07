@@ -3,7 +3,6 @@ public class Sort {
 
     public int[] array;
     public int n;
-    public int countForMerge;
 
     public Sort(int[] array) {
 
@@ -60,38 +59,45 @@ public class Sort {
         return arr;
     }
 
-    public int[] byMerge(int[] arr, int m, int n) {
-        int middle = (m + n) / 2;
+    public void byMerge(int l, int r) {
 
-        if (m < n) {
-            byMerge(arr, m, middle);
-            byMerge(arr, middle + 1, n);
-            return merge(arr, m, middle, n);
+        if (l < r) {
+            int m = (l+r)/2;
+
+            byMerge(l, m);
+            byMerge(m+1, r);
+            merge(l, m, r);
         }
-
-        else return null;
     }
 
-    public int[] merge(int[] arr, int m, int middle, int n) {
-        int[] sortArr = arr;
-        countForMerge++;
-        int i, j, k;
-        i = k = m;
-        j = middle + 1;
 
-        while (i <= middle && j <= n) {
-            if (arr[i] <= arr[j]) sortArr[k] = arr[i++];
-            else sortArr[k] = arr[j++];
+    public void merge(int l, int m, int r) {
+
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        int L[] = new int [n1];
+        int R[] = new int [n2];
+
+
+        for (int i=0; i<n1; ++i)
+            L[i] = array[l + i];
+        for (int j=0; j<n2; ++j)
+            R[j] = array[m + 1+ j];
+
+        int i = 0, j = 0, k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j])
+                array[k] = L[i++];
+            else
+                array[k] = R[j++];
             k++;
         }
 
-        if (i > middle)
-            for(int t = j; t <= n; t++, k++)
-                sortArr[k] = arr[t];
-        else
-            for(int t = i; t <= middle; t++, k++)
-                sortArr[k] = arr[t];
+        while (i < n1)
+            array[k++] = L[i++];
 
-        return sortArr;
+        while (j < n2)
+            array[k++] = R[j++];
     }
 }

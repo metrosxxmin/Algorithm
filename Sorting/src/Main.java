@@ -50,9 +50,10 @@ public class Main {
 
         if (input == 4) {
             startTime = System.nanoTime();
-            result = sort.byMerge(testArray, 0, testArray.length - 1);
+            sort.byMerge(0, testArray.length - 1);
             endTime = System.nanoTime();
 
+            result = sort.array;
             printLine(result, endTime - startTime);
         }
     }
