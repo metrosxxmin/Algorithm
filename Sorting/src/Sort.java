@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Sort {
 
@@ -79,7 +80,6 @@ public class Sort {
         int L[] = new int [n1];
         int R[] = new int [n2];
 
-
         for (int i=0; i<n1; ++i)
             L[i] = array[l + i];
         for (int j=0; j<n2; ++j)
@@ -96,8 +96,32 @@ public class Sort {
 
         while (i < n1)
             array[k++] = L[i++];
-
         while (j < n2)
             array[k++] = R[j++];
+    }
+
+    // n is array's length
+    public void byPigeonhole(int n) {
+        int min = array[0];
+        int max = min;
+        int range, i, j, index;
+
+        for(int a = 0; a < n; a++) {
+            if(array[a] > max) max = array[a];
+            if(array[a] < min) min = array[a];
+        }
+
+        range = max - min + 1;
+        int[] pHole = new int[range];
+        Arrays.fill(pHole, 0);
+
+        for(i = 0; i < n; i++)
+            pHole[array[i] - min]++;
+
+        index = 0;
+        for(j = 0; j < range; j++)
+            while(pHole[j]-- > 0)
+                array[index++] = j + min;
+
     }
 }
