@@ -11,6 +11,7 @@ public class Sort {
         this.n = array.length;
     }
 
+    // Insertion sort
     public int[] byInsertion(int[] arr) {
 
         for (int i = 1; i < n; ++i) {
@@ -27,6 +28,7 @@ public class Sort {
         return arr;
     }
 
+    // Bubble sort
     public int[] byBubble(int[] arr) {
 
         for (int i = 0; i < n - 1; ++i) {
@@ -42,6 +44,7 @@ public class Sort {
         return arr;
     }
 
+    // Selection sort
     public int[] bySelection(int[] arr) {
 
         for (int i = 0; i < n - 1; ++i) {
@@ -60,6 +63,7 @@ public class Sort {
         return arr;
     }
 
+    // Merge sort
     public void byMerge(int l, int r) {
 
         if (l < r) {
@@ -100,8 +104,9 @@ public class Sort {
             array[k++] = R[j++];
     }
 
-    // n is array's length
+    // Pigeonhole sort
     public void byPigeonhole(int n) {
+        // n is array's length
         int min = array[0];
         int max = min;
         int range, i, j, index;
@@ -125,6 +130,7 @@ public class Sort {
 
     }
 
+    // Quick sort
     public void byQuick(int low, int high) {
 
         if (low < high) {
@@ -149,7 +155,7 @@ public class Sort {
                 array[j] = temp;
             }
         }
-        
+
         int temp = array[i+1];
         array[i+1] = array[high];
         array[high] = temp;
