@@ -19,7 +19,7 @@ public class Main {
         }
 
         System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection " +
-                "\n4 : Merge \n5 : Pigeonhole \n\ninput : ");
+                "\n4 : Merge \n5 : Pigeonhole \n6 : Quick \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -60,6 +60,15 @@ public class Main {
         if (input == 5) {
             startTime = System.nanoTime();
             sort.byPigeonhole(testArray.length);
+            endTime = System.nanoTime();
+
+            result = sort.array;
+            printLine(result, endTime - startTime);
+        }
+
+        if (input == 6) {
+            startTime = System.nanoTime();
+            sort.byQuick(0, testArray.length - 1);
             endTime = System.nanoTime();
 
             result = sort.array;
