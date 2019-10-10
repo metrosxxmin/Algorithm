@@ -111,7 +111,7 @@ public class Sort {
         int max = min;
         int range, i, j, index;
 
-        for(int a = 0; a < n; a++) {
+        for(int a = 0; a < n; ++a) {
             if(array[a] > max) max = array[a];
             if(array[a] < min) min = array[a];
         }
@@ -120,11 +120,11 @@ public class Sort {
         int[] pHole = new int[range];
         Arrays.fill(pHole, 0);
 
-        for(i = 0; i < n; i++)
+        for(i = 0; i < n; ++i)
             pHole[array[i] - min]++;
 
         index = 0;
-        for(j = 0; j < range; j++)
+        for(j = 0; j < range; ++j)
             while(pHole[j]-- > 0)
                 array[index++] = j + min;
 
@@ -146,7 +146,7 @@ public class Sort {
         int pivot = array[high];
         int i = low - 1;
 
-        for (int j = low; j < high; j++)  {
+        for (int j = low; j < high; ++j)  {
             if (array[j] < pivot) {
                 i++;
 
@@ -164,6 +164,7 @@ public class Sort {
 
     }
 
+    // Shell sort
     public int[] byShell(int[] arr) {
 
         for (int gap = n / 2; gap > 0; gap /= 2) {
@@ -180,4 +181,45 @@ public class Sort {
         }
         return arr;
     }
+
+    // Radix sort
+    public void byRadix(int n) {
+        int m = getMax(n);
+
+        for (int exp = 1; m/exp > 0; exp *= 10)
+            countSort(n, exp);
+    }
+
+    public int getMax(int n) {
+        int max = array[0];
+
+        for (int i = 1; i < n; ++i)
+            if (array[i] > max)
+                max = array[i];
+
+        return max;
+    }
+
+    public void countSort(int n, int exp) {
+        int output[] = new int[n];
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count,0);
+
+        for (i = 0; i < n; ++i)
+            count[ (array[i]/exp)%10 ]++;
+
+        for (i = 1; i < 10; ++i)
+            count[i] += count[i - 1];
+
+        for (i = n - 1; i >= 0; i--) {
+            output[count[ (array[i]/exp)%10 ] - 1] = array[i];
+            --count[ (array[i]/exp)%10 ];
+        }
+
+        for (i = 0; i < n; i++)
+            array[i] = output[i];
+    }
+
+
 }
