@@ -19,7 +19,7 @@ public class Main {
         }
 
         System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection " +
-                "\n4 : Merge \n5 : Pigeonhole \n6 : Quick \n7 : Shell \n\ninput : ");
+                "\n4 : Merge \n5 : Pigeonhole \n6 : Quick \n7 : Shell \n8 : Radix \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -84,7 +84,14 @@ public class Main {
             printLine(result, endTime - startTime);
         }
 
+        if (input == 8) {
+            startTime = System.nanoTime();
+            sort.byRadix(testArray.length);
+            endTime = System.nanoTime();
 
+            result = sort.array;
+            printLine(result, endTime - startTime);
+        }
     }
 
     public static void printLine(int[] result, long time) {
