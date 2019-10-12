@@ -221,5 +221,39 @@ public class Sort {
             array[i] = output[i];
     }
 
+    // Cocktail sort
+    public int[] byCocktail(int[] arr) {
+        boolean swapped = true;
+        int start = 0, end = arr.length;
 
+        while (swapped == true) {
+            swapped = false;
+
+            for (int i = start; i < end - 1; ++i) {
+                if (arr[i] > arr[i + 1]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            if (swapped == false) break;
+
+            swapped = false;
+            end--;
+            
+            for (int i = end - 1; i >= start; i--) {
+                if (arr[i] > arr[i + 1]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            start++;
+        }
+        return arr;
+    }
 }
