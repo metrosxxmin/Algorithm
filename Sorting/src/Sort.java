@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class Sort {
 
@@ -130,13 +131,12 @@ public class Sort {
 
     }
 
-    // Quick sort
+    // Quick sort (divide and conquer)
     public void byQuick(int low, int high) {
 
         if (low < high) {
 
             int pi = partition(low, high);
-
             byQuick(low, pi - 1);
             byQuick(pi + 1, high);
         }
@@ -161,6 +161,27 @@ public class Sort {
         array[high] = temp;
 
         return i + 1;
+
+    }
+
+    //Quick sort (random)
+    public void byQuick_random(int low, int high) {
+
+        if (low < high) {
+
+            int pi = partition(low, high);
+            byQuick_random(low, pi - 1);
+            byQuick_random(pi + 1, high);
+        }
+    }
+
+    public int partition_random(int low, int high) {
+        int i = new Random().nextInt(high - low + 1) + low;
+        int temp = array[high];
+        array[high] =  array[i];
+        array[i] = array[temp];
+
+        return partition(low, high);
 
     }
 
@@ -242,7 +263,7 @@ public class Sort {
 
             swapped = false;
             end--;
-            
+
             for (int i = end - 1; i >= start; i--) {
                 if (arr[i] > arr[i + 1]) {
                     int temp = arr[i];
