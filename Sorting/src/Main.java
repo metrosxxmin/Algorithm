@@ -20,7 +20,7 @@ public class Main {
 
         System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection " +
                 "\n4 : Merge \n5 : Pigeonhole \n6 : Quick (Basic) \n7 : Quick (Random) " +
-                "\n8 : Shell \n9 : Radix \n10 : Cocktail \n\ninput : ");
+                "\n8 : Shell \n9 : Radix \n10 : Cocktail \n11 : Pancake \n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -106,6 +106,14 @@ public class Main {
         if (input == 10) {
             startTime = System.nanoTime();
             result = sort.byCocktail(testArray);
+            endTime = System.nanoTime();
+
+            printLine(result, endTime - startTime);
+        }
+
+        if (input == 11) {
+            startTime = System.nanoTime();
+            result = sort.byPancake(testArray);
             endTime = System.nanoTime();
 
             printLine(result, endTime - startTime);

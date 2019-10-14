@@ -277,4 +277,8 @@ public class Sort {
         }
         return arr;
     }
+
+    public void byPancake(int n) {
+        
+    }
 }
