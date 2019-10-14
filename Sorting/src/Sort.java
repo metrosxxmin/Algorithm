@@ -264,7 +264,7 @@ public class Sort {
             swapped = false;
             end--;
 
-            for (int i = end - 1; i >= start; i--) {
+            for (int i = end - 1; i >= start; --i) {
                 if (arr[i] > arr[i + 1]) {
                     int temp = arr[i];
                     arr[i] = arr[i + 1];
@@ -278,7 +278,37 @@ public class Sort {
         return arr;
     }
 
+    // Pancake sort
     public void byPancake(int n) {
-        
+
+        for (int curr_size = n; curr_size > 1; --curr_size) {
+            int mi = findMax(curr_size);
+
+            if (mi != curr_size - 1) {
+                flip(mi);
+                flip(curr_size - 1);
+            }
+        }
+    }
+
+    public int findMax(int n) {
+        int mi, i;
+        for (mi = 0, i = 0; i < n; ++i)
+            if (array[i] > array[mi])
+                mi = i;
+
+        return mi;
+    }
+
+    public void flip(int i) {
+        int temp, start = 0;
+
+        while (start < i) {
+            temp = array[start];
+            array[start] = array[i];
+            array[i] = temp;
+            start++;
+            --i;
+        }
     }
 }

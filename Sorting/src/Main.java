@@ -113,9 +113,10 @@ public class Main {
 
         if (input == 11) {
             startTime = System.nanoTime();
-            result = sort.byPancake(testArray);
+            sort.byPancake(testArray.length - 1);
             endTime = System.nanoTime();
 
+            result = sort.array;
             printLine(result, endTime - startTime);
         }
     }
