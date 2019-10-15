@@ -311,4 +311,44 @@ public class Sort {
             --i;
         }
     }
+
+
+    // bead sort ( Also known as gravity sort. )
+    public int[] byBead(int[] arr, int n) {
+
+        int max = arr[0];
+        for (int i = 0; i < n; ++i) {
+            if (max < arr[i])
+                max = arr[i];
+        }
+
+        int[] beads = new int[max * n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < arr[i]; ++j) {
+                beads[i * max + j] = 1;
+            }
+        }
+
+        for (int j = 0; j < max; ++j) {
+
+            int sum = 0;
+            for (int i = 0; i < n; ++i) {
+                sum += beads[i * max + j];
+                beads[i * max + j] = 0;
+            }
+
+            for (int i = n - sum; i < n; ++i) {
+                beads[i * max + j] = 1;
+            }
+
+        }
+
+        for (int i = 0; i < n; ++i) {
+            int j;
+            for (j = 0; j < max && beads[i * max + j] == 1; ++j) {
+                arr[i] = j;
+            }
+        }
+        return arr;
+    }
 }
