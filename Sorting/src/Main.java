@@ -4,13 +4,13 @@ public class Main {
 
     public static int[] result;
     public static long startTime, endTime;
-    public final static int MAX_SIZE = 50_000;
+    public final static int MAX_SIZE = 10_000;
     public static int[] testArray = new int[MAX_SIZE];
 
     public static void main(String[] args) {
 
         for (int i = 0; i < MAX_SIZE; ++i) {
-            testArray[i] = (int)((Math.random() * 50_000) + 1);
+            testArray[i] = (int)((Math.random() * 10_000) + 1);
         }
 
         System.out.print("Before sorting \n>> ");
@@ -20,7 +20,7 @@ public class Main {
 
         System.out.print("\n\n <Option of sorting> \n1 : Insertion \n2 : Bubble \n3 : Selection " +
                 "\n4 : Merge \n5 : Pigeonhole \n6 : Quick (Basic) \n7 : Quick (Random) " +
-                "\n8 : Shell \n9 : Radix \n10 : Cocktail \n11 : Pancake \n\ninput : ");
+                "\n8 : Shell \n9 : Radix \n10 : Cocktail \n11 : Pancake \n12 : Bead (a.k.a Gravity)\n\ninput : ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
 
@@ -117,6 +117,14 @@ public class Main {
             endTime = System.nanoTime();
 
             result = sort.array;
+            printLine(result, endTime - startTime);
+        }
+
+        if (input == 12) {
+            startTime = System.nanoTime();
+            result = sort.byBead(testArray, testArray.length - 1);
+            endTime = System.nanoTime();
+
             printLine(result, endTime - startTime);
         }
     }

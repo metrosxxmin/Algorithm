@@ -322,7 +322,7 @@ public class Sort {
                 max = arr[i];
         }
 
-        int[] beads = new int[max * n];
+        long[] beads = new long[max * n];
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < arr[i]; ++j) {
                 beads[i * max + j] = 1;
