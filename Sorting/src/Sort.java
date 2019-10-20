@@ -169,7 +169,7 @@ public class Sort {
 
         if (low < high) {
 
-            int pi = partition(low, high);
+            int pi = partition_random(low, high);
             byQuick_random(low, pi - 1);
             byQuick_random(pi + 1, high);
         }
