@@ -168,7 +168,6 @@ public class Sort {
     public void byQuick_random(int low, int high) {
 
         if (low < high) {
-
             int pi = partition_random(low, high);
             byQuick_random(low, pi - 1);
             byQuick_random(pi + 1, high);
