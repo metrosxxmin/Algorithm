@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         for (int i = 0; i < MAX_SIZE; ++i) {
-            testArray[i] = (int)((Math.random() * 10_000) + 1);
+            testArray[i] = (int)((Math.random() * 20_000) + 1);
         }
 
         System.out.print("Before sorting \n>> ");
